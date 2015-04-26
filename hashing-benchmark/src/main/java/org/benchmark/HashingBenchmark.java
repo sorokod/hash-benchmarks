@@ -17,8 +17,6 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class HashingBenchmark {
 
-    private final static String TEXT_FILE = "E:\\code\\mine\\hash-benchmarks-jmh\\hashing-benchmark\\data\\words.txt";
-
     private final static MessageDigest digestMD5;
     private final static MessageDigest digestSHA1;
     private final static MessageDigest digestSHA256;
@@ -57,7 +55,6 @@ public class HashingBenchmark {
 
     @Param({})
     public String dataFile;
-
 
 
     @Benchmark
