@@ -16,7 +16,7 @@ public class HashingJavaStringBenchmark {
 
     private List<String> data = new ArrayList<>();
 
-    @Setup
+    @Setup(Level.Iteration)
     public void setup() {
         try (Scanner scanner = new Scanner(new File(dataFile))) {
             while (scanner.hasNext()) {

@@ -35,7 +35,7 @@ HashingBenchmark.crc32        data\words.txt  avgt    7   5.319 ± 0.073  ms/op
 HashingBenchmark.crc32c       data\words.txt  avgt    7   2.893 ± 0.111  ms/op
 HashingBenchmark.sipHash24    data\words.txt  avgt    7   8.734 ± 0.109  ms/op
 
-HashingJavaStringBenchmark.javaStringHash  data\words.txt  avgt    7  1.253 ± 0.034  ms/op
+HashingJavaStringBenchmark.javaStringHash  data\words.txt  avgt    7  7.346 ± 2.504  ms/op  (cached hash values are discarded)
 ```
 
 On the provided corpus, CRC-32C generated one collision, the rest where collision free.
