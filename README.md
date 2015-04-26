@@ -2,15 +2,15 @@
 
 Benchmark for hashing "words" using the algorithms available with the JDK plus some that are part of [Guava](https://code.google.com/p/guava-libraries/wiki/HashingExplained):
 
-* MD5 (JDK)
-* SHA-1 (JDK)
-* SHA-256 (JDK)
-* SHA-512 (JDK)
-* Murmur3 128 (Guava)
-* Murmur3 32 (Guava) 
-* CRC-32 (Guava)
-* CRC-32C (Guava)
-* SipHash (Guava)
+* MD5 (JDK 1.7)
+* SHA-1 (JDK 1.7)
+* SHA-256 (JDK 1.7)
+* SHA-512 (JDK 1.7)
+* Murmur3 128 (Guava 18.0)
+* Murmur3 32 (Guava 18.0) 
+* CRC-32 (Guava 18.0)
+* CRC-32C (Guava 18.0)
+* SipHash (Guava 18.0)
 
 The "words" are part of a corpus that is dynamically generated during the benchmark, the command line parameters set the size of the corpus and the length of the "words" it contains. The code uses [JMH](http://http://openjdk.java.net/projects/code-tools/jmh/), and is a Maven project.  
 
