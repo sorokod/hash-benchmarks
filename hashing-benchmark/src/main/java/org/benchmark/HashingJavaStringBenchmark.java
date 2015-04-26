@@ -3,10 +3,7 @@ package org.benchmark;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
@@ -14,26 +11,22 @@ import java.util.concurrent.TimeUnit;
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 public class HashingJavaStringBenchmark {
 
-    private List<String> data = new ArrayList<>();
-
-    @Setup(Level.Iteration)
-    public void setup() {
-        try (Scanner scanner = new Scanner(new File(dataFile))) {
-            while (scanner.hasNext()) {
-                data.add(scanner.next());
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+    private Set<String> corpus = null;
 
     @Param({})
-    public String dataFile;
+    public int corpusSize;
 
+    @Param({})
+    public int stringLength;
+
+    @org.openjdk.jmh.annotations.Setup(Level.Iteration)
+    public void setup() {
+        corpus = BenchmarkSetup.generateCorpus(corpusSize, stringLength);
+    }
 
     @Benchmark
     public void javaStringHash(Blackhole blackHole) {
-        for (String s : data) {
+        for (String s : corpus) {
             blackHole.consume(s.hashCode());
         }
     }
