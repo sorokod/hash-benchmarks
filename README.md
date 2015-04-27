@@ -37,6 +37,22 @@ HashingBenchmark.hash        500000        CRC32C              12  avgt   10   4
 
 HashingJavaStringBenchmark.javaStringHash        500000        12  avgt   10   20.907 ± 6.922  ms/op
 ```
+
+When normilized by MD5 performance we have:
+
+| Hasher |         |
+--------------------
+         MD5 | 1
+       SHA-1 | 1.35
+     SHA-256 | 1.71
+     SHA-512 | 2.65
+ MURMUR3_128 | 0.65
+  MURMUR3_32 | 0.66
+  SIP_HASH24 | 0.72
+       CRC32 | 0.58
+      CRC32C | 0.40
+ String.hashCode |  0.19
+
 ## Collisions
 Collisions do occur in some of the cases, running: ```mvn exec:java -Dexec.mainClass="org.benchmark.CollisionDetector" -Dexec.args="500000 12" -Dexec.classpathScope=runtime``` results in 
 ```
